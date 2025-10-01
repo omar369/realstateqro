@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import {cn} from '@/lib/utils'
 
 import Navbar from '@/components/landing/Navbar'
+import Footer from '@/components/landing/Footer'
 
 //FUENTES
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const monse = Montserrat({
+  weight: '400',
+  subsets: ['latin'],
+})
 
 
 export const metadata: Metadata = {
@@ -30,10 +26,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${monse.className} antialiased`}
       >
         <Navbar />
         <main className="min-h-screen container mx-auto px-4">{children}</main>
+        <Footer/>
       </body>
     </html>
   );
