@@ -17,7 +17,7 @@ export default function InmueblesPage() {
 
   const PROPERTIES_PER_PAGE = 10;
 
-  const filtered = properties.filter((prop) => {
+  const filtered: Property[] = properties.filter((prop) => {
     const matchesTipo =
       tipoOperacion.length === 0 || tipoOperacion.includes(prop.tipoOperacion);
     const matchesPropiedad =
@@ -62,7 +62,7 @@ export default function InmueblesPage() {
       <div className="grid gap-6">
         {paginatedProperties.length > 0 ? (
           paginatedProperties.map((prop) => (
-            <PropertyCard key={prop.id} property={prop as Property} />
+            <PropertyCard key={prop.id} property={prop} />
           ))
         ) : (
           <p className="text-center text-muted-foreground">

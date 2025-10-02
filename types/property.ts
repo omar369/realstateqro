@@ -11,10 +11,20 @@ export type Property = {
   metros: number;
   antiguedad: number;
   fecha: string;
+  descripcion: string;
   imagenes: string[];
+  ambientes: string[];
+  servicios: string[];
+  amenidades: string[];
+  exteriores: string[];
+  extras: string[];
   detalles: {
-    descripcion: string;
-    servicios: string[];
-    adicionales: string[];
+    estadoConservacion: string;
+    balcon: number;
+    elevador: number;
+    bodega: number;
+    nivelesConstruidos: number;
+    estanciaMinima: number;
+    disponibilidad: string;
   };
 };
