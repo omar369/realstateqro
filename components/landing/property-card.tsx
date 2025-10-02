@@ -18,7 +18,7 @@ type Property = {
   habitaciones?: number;
   banos?: number;
   metros?: number;
-  imagenes?: string;
+  imagenes?: string[];
   fecha?: string;
 };
 

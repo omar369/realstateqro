@@ -6,7 +6,6 @@ import { PaginationCatalogue } from "@/components/landing/pagination-catalogue";
 import { FilterCatalogue } from "@/components/landing/filter-catalogue";
 import { PropertyCard } from "@/components/landing/property-card";
 import { properties } from "@/data/properties";
-import { Property } from "@/types/property";
 
 export default function InmueblesPage() {
   const searchParams = useSearchParams();
@@ -17,7 +16,7 @@ export default function InmueblesPage() {
 
   const PROPERTIES_PER_PAGE = 10;
 
-  const filtered: Property[] = properties.filter((prop) => {
+  const filtered = properties.filter((prop) => {
     const matchesTipo =
       tipoOperacion.length === 0 || tipoOperacion.includes(prop.tipoOperacion);
     const matchesPropiedad =
