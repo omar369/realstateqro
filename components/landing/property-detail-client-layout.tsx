@@ -98,7 +98,7 @@ export default function PropertyDetailClientLayout({
           />
         </div>
         <div className="md:col-span-2 grid grid-cols-2 gap-2">
-          {property.imagenes.slice(1,5).map((img, index) => (
+          {property.imagenes.slice(1,5).map((img: string, index: number) => (
             <Image
               key={index}
               src={img}

@@ -6,6 +6,7 @@ import { PaginationCatalogue } from "@/components/landing/pagination-catalogue";
 import { FilterCatalogue } from "@/components/landing/filter-catalogue";
 import { PropertyCard } from "@/components/landing/property-card";
 import { properties } from "@/data/properties";
+import { Property } from "@/types/property";
 
 export default function InmueblesPage() {
   const searchParams = useSearchParams();
@@ -61,7 +62,7 @@ export default function InmueblesPage() {
       <div className="grid gap-6">
         {paginatedProperties.length > 0 ? (
           paginatedProperties.map((prop) => (
-            <PropertyCard key={prop.id} property={prop} />
+            <PropertyCard key={prop.id} property={prop as Property} />
           ))
         ) : (
           <p className="text-center text-muted-foreground">

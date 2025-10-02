@@ -1,4 +1,6 @@
-export const properties = [
+import { Property } from "@/types/property";
+
+export const properties: Property[] = [
   {
     id: 1,
     titulo: "Casa con jardín y alberca",

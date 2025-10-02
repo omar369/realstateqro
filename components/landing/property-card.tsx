@@ -10,15 +10,15 @@ import {
 import Link from "next/link";
 
 type Property = {
-  id: number;
-  titulo: string;
-  direccion: string;
-  tipoOperacion: "venta" | "renta" | "traspaso";
-  precio: number;
-  habitaciones: number;
-  banos: number;
-  metros: number;
-  imagen: string;
+  id?: number;
+  titulo?: string;
+  direccion?: string;
+  tipoOperacion?: "venta" | "renta" | "traspaso";
+  precio?: number;
+  habitaciones?: number;
+  banos?: number;
+  metros?: number;
+  imagenes?: string;
   fecha?: string;
 };
 
@@ -33,7 +33,7 @@ export function PropertyCard({ property }: PropertyCardProps) {
       {property.imagenes?.[0] && (
          <Image
           src={property.imagenes[0]}
-          alt={property.titulo}
+          alt={property.titulo || "Propiedad"}
           fill
           className="object-cover"
         />
@@ -48,7 +48,7 @@ export function PropertyCard({ property }: PropertyCardProps) {
               {property.tipoOperacion}
             </Badge>
             <span className="text-xl font-bold text-right">
-              ${property.precio.toLocaleString()}
+              ${property.precio?.toLocaleString()}
             </span>
           </div>
 
