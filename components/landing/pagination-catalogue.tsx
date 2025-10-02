@@ -25,7 +25,7 @@ export function PaginationCatalogue({
   const pages = [];
 
   let start = Math.max(currentPage - Math.floor(maxPageNumbersToShow / 2), 1);
-  let end = Math.min(start + maxPageNumbersToShow - 1, totalPages);
+  const end = Math.min(start + maxPageNumbersToShow - 1, totalPages);
 
   if (end - start < maxPageNumbersToShow - 1) {
     start = Math.max(end - maxPageNumbersToShow + 1, 1);

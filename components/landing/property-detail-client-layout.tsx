@@ -23,6 +23,7 @@ export default function PropertyDetailClientLayout({
   property,
   children,
 }: {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   property: any;
   children: React.ReactNode;
 }) {

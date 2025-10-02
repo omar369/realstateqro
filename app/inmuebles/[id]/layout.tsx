@@ -1,22 +1,10 @@
-import { notFound } from "next/navigation"
-import { ReactNode} from "react"
-
-import { properties } from "@/data/properties"
-import PropertyDetailClientLayout from "@/components/landing/property-detail-client-layout"
+import { ReactNode } from "react";
 
 interface LayoutProps {
-  children: ReactNode
-  params: { id: string }
+  children: ReactNode;
 }
 
-export default function PropertyLayout({ children, params }: LayoutProps) {
-  const property = properties.find((p) => p.id === Number(params.id))
-  if (!property) return notFound()
-
-  // Client-side interactividad separada en subcomponente
-  return (
-    <PropertyDetailClientLayout property={property}>
-      {children}
-    </PropertyDetailClientLayout>
-  )
+export default function PropertyLayout({ children }: LayoutProps) {
+  return <>{children}</>;
 }
+
