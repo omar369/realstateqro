@@ -19,7 +19,7 @@ export default function Navbar() {
     <header className="border-b">
       <div className="container mx-auto flex items-center justify-between px-4 py-4">
         <Link href="/" className="text-xl font-bold">
-          RealEstate
+          Real Estate Querétaro
         </Link>
 
         {/* Desktop menu */}

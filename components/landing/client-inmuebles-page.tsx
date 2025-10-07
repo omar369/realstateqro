@@ -33,7 +33,8 @@ export default function ClientInmueblesPage() {
   const endIndex = startIndex + PROPERTIES_PER_PAGE;
   const paginatedProperties = filtered.slice(startIndex, endIndex);
 
-  if (page > totalPages) {
+  const isPageInvalid = page > totalPages && filtered.length > 0;
+  if (isPageInvalid) {
     notFound();
   }
 
@@ -47,12 +48,23 @@ export default function ClientInmueblesPage() {
       {(keyword || tipoOperacion.length || tipoPropiedad) && (
         <p className="text-sm text-muted-foreground text-center">
           Mostrando resultados
-          {keyword && <> con palabra clave <strong>{keyword}</strong></>}
+          {keyword && (
+            <>
+              {" "}
+              con palabra clave <strong>{keyword}</strong>
+            </>
+          )}
           {tipoOperacion.length > 0 && (
-            <> para operación: <strong>{tipoOperacion.join(", ")}</strong></>
+            <>
+              {" "}
+              para operación: <strong>{tipoOperacion.join(", ")}</strong>
+            </>
           )}
           {tipoPropiedad && (
-            <> de tipo: <strong>{tipoPropiedad}</strong></>
+            <>
+              {" "}
+              de tipo: <strong>{tipoPropiedad}</strong>
+            </>
           )}
         </p>
       )}
@@ -66,7 +78,14 @@ export default function ClientInmueblesPage() {
           ))
         ) : (
           <p className="text-center text-muted-foreground">
-            No se encontraron propiedades con esos filtros.
+            {keyword ? (
+              <>
+                No se encontraron propiedades con las palabras:{" "}
+                <strong>{keyword}</strong>
+              </>
+            ) : (
+              "No se encontraron propiedades con esos filtros."
+            )}
           </p>
         )}
       </div>
