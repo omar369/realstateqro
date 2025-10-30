@@ -4,12 +4,11 @@ import type { NextConfig } from "next"
 const securityHeaders = [
   {
     key: "Content-Security-Policy",
-    value: [
-      "default-src 'self';",
-      "script-src 'self' https://challenges.cloudflare.com;",
-      "frame-src https://challenges.cloudflare.com;",
+    value:
+      "default-src 'self'; " +
+      "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com; " +
+      "frame-src https://challenges.cloudflare.com; " +
       "style-src 'self' 'unsafe-inline';",
-    ].join(" "),
   },
 ]
 
