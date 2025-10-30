@@ -1,7 +1,28 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from "next"
+
+//no script-src explicitly set (el error persiste, headers no estan siendo definidos, npi...)
+const securityHeaders = [
+  {
+    key: "Content-Security-Policy",
+    value: [
+      "default-src 'self';",
+      "script-src 'self' https://challenges.cloudflare.com;",
+      "frame-src https://challenges.cloudflare.com;",
+      "style-src 'self' 'unsafe-inline';",
+    ].join(" "),
+  },
+]
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: securityHeaders,
+      },
+    ]
+  },
+}
 
-export default nextConfig;
+export default nextConfig
+

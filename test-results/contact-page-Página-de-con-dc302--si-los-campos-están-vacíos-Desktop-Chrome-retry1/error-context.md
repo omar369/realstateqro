@@ -1,0 +1,52 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Real Estate Querétaro" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=e5]:
+        - link "Inmuebles" [ref=e6] [cursor=pointer]:
+          - /url: /inmuebles
+        - link "Renta" [ref=e7] [cursor=pointer]:
+          - /url: /inmuebles?tipoOperacion=renta
+        - link "Venta" [ref=e8] [cursor=pointer]:
+          - /url: /inmuebles?tipoOperacion=venta
+        - link "Contacto" [ref=e9] [cursor=pointer]:
+          - /url: /contacto
+  - main [ref=e10]:
+    - main [ref=e11]:
+      - heading "Contacto" [level=1] [ref=e12]
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - generic [ref=e15]: Nombre
+          - textbox "Tu nombre" [active] [ref=e16]
+        - generic [ref=e17]:
+          - generic [ref=e18]: Correo electrónico
+          - textbox "tu@email.com" [ref=e19]
+        - generic [ref=e20]:
+          - generic [ref=e21]: Mensaje
+          - textbox "Escribe tu mensaje aquí..." [ref=e22]
+        - button "Enviar" [ref=e23]
+      - generic [ref=e24]:
+        - link [ref=e25] [cursor=pointer]:
+          - /url: https://wa.me/5214421234567
+          - img [ref=e26]
+        - link "¬¬" [ref=e28] [cursor=pointer]:
+          - /url: https://instagram.com/inmobiliaria
+          - heading "¬¬" [level=2] [ref=e29]
+        - link "°-°" [ref=e30] [cursor=pointer]:
+          - /url: https://facebook.com/inmobiliaria
+          - heading "°-°" [level=2] [ref=e31]
+        - link [ref=e32] [cursor=pointer]:
+          - /url: mailto:contacto@inmobiliaria.com
+          - img [ref=e33]
+  - contentinfo [ref=e36]:
+    - generic [ref=e37]:
+      - paragraph [ref=e38]: Creado por RealEstate Studio
+      - paragraph [ref=e39]: "Contacto: 442-765-4321"
+  - button "Open Next.js Dev Tools" [ref=e45] [cursor=pointer]:
+    - img [ref=e46]
+  - alert [ref=e49]
+```
