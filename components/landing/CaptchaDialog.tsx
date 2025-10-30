@@ -28,7 +28,7 @@ export default function CaptchaDialog({
         <div className="space-y-3">
           <Turnstile
             sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
-            onVerify={(tok) => setToken(tok)}
+            onVerify={(token) => console.log("Verified:", token)}
           />
           <Input
             placeholder="¿Deseas una llamada del agente? (opcional)"
