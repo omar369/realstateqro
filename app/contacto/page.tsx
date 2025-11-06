@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { MailIcon, MessageSquareIcon } from "lucide-react";
+import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import CaptchaDialog from "@/components/landing/CaptchaDialog";
 
 export default function ContactPage() {
@@ -145,24 +145,17 @@ export default function ContactPage() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <MessageSquareIcon className="w-6 h-6" />
+          <FaFacebook className="w-6 h-6" />
         </a>
         <a
           href="https://instagram.com/inmobiliaria"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <h2>¬¬</h2>
-        </a>
-        <a
-          href="https://facebook.com/inmobiliaria"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>°-°</h2>
+          <FaInstagram className="w-6 h-6" />
         </a>
         <a href="mailto:contacto@inmobiliaria.com">
-          <MailIcon className="w-6 h-6" />
+          <FaWhatsapp className="w-6 h-6" />
         </a>
       </div>
     </main>
