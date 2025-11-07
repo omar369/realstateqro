@@ -30,8 +30,15 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+dist 
+.turbo 
+.DS_Store 
 # env files (can opt-in for committing if needed)
+*.log
+*.env
 .env*
+.env.*.local 
+.env.local
 
 # vercel
 .vercel

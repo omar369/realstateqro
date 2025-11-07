@@ -1,0 +1,13 @@
+{
+  "name": "realestateqro",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w landing-page",
+    "build": "npm run build -w landing-page",
+    "start": "npm run start -w landing-page"
+  }
+}
+
