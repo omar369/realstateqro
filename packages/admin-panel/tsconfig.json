@@ -31,5 +31,6 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
+  "extends": "../../tsconfig.json",
   "exclude": ["node_modules"]
 }
