@@ -1,5 +1,5 @@
-import MainHero from "@/components/landing/MainHero";
-import ValuationAndLegalSection from "@/components/landing/ValuationAndLegalSection";
+import MainHero from "@landing/components/landing/MainHero";
+import ValuationAndLegalSection from "@landing/components/landing/ValuationAndLegalSection";
 import Link from "next/link";
 
 export default function HomePage() {

@@ -1,33 +1,32 @@
 {
   "compilerOptions": {
-    /* === Base settings === */
-    "target": "ES2022",
+    "target": "ES2021",
     "module": "ESNext",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "moduleResolution": "Bundler",
-    "resolveJsonModule": true,
-    "allowJs": true,
-    "jsx": "preserve",
-    "noEmit": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "Node",
+    "strict": true,
     "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowJs": true,
     "forceConsistentCasingInFileNames": true,
-
-    /* === Path alias support === */
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
       "@admin/*": ["packages/admin-panel/*"],
       "@landing/*": ["packages/landing-page/*"]
-    },
-
-    /* === Strict type checking === */
-    "strict": true
+    }
   },
-
-  "include": ["packages/**/*"],
-  "exclude": ["node_modules", ".vercel", "dist"]
+  "exclude": [
+    "node_modules",
+    "packages/admin-panel",
+    "packages/admin-panel/**",
+    ".vercel",
+    ".next",
+    "dist"
+  ],
+  "include": [
+    "packages/landing-page/**/*"
+  ]
 }
 

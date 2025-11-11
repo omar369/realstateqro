@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import ClientInmueblesPage from "@/components/landing/client-inmuebles-page";
+import ClientInmueblesPage from "@landing/components/landing/client-inmuebles-page";
 
 export default function InmueblesPage() {
   return (

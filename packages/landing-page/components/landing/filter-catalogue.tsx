@@ -8,18 +8,18 @@ import {
   DrawerTitle,
   DrawerDescription,
   DrawerFooter,
-} from "@/components/ui/drawer";
+} from "@landing/components/ui/drawer";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Toggle } from "@/components/ui/toggle";
+import { Button } from "@landing/components/ui/button";
+import { Input } from "@landing/components/ui/input";
+import { Toggle } from "@landing/components/ui/toggle";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@landing/components/ui/select";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";

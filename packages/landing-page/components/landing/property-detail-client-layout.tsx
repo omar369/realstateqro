@@ -11,13 +11,13 @@ import {
 } from "lucide-react";
 
 import { ImageGalleryCarousel } from "./image-gallery-carousel";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@landing/components/ui/badge";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@landing/components/ui/accordion";
 
 export default function PropertyDetailClientLayout({
   property,

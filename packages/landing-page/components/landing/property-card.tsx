@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@landing/components/ui/badge";
+import { Button } from "@landing/components/ui/button";
 import {
   BathIcon,
   BedDoubleIcon,

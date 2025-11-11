@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
+import { Input } from "@landing/components/ui/input";
+import { Textarea } from "@landing/components/ui/textarea";
+import { Button } from "@landing/components/ui/button";
 import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
-import CaptchaDialog from "@/components/landing/CaptchaDialog";
+import CaptchaDialog from "@landing/components/landing/CaptchaDialog";
 
 export default function ContactPage() {
   const [form, setForm] = useState({

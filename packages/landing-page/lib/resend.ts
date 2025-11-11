@@ -1,7 +1,7 @@
 "use server";
 
 import { Resend } from "resend";
-import { contactSchema } from "@/lib/validation/contact";
+import { contactSchema } from "@landing/lib/validation/contact";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 

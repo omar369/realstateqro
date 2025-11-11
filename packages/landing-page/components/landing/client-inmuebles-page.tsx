@@ -1,11 +1,11 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { Separator } from "@/components/ui/separator";
-import { PaginationCatalogue } from "@/components/landing/pagination-catalogue";
-import { FilterCatalogue } from "@/components/landing/filter-catalogue";
-import { PropertyCard } from "@/components/landing/property-card";
-import { properties } from "@/data/properties";
+import { Separator } from "@landing/components/ui/separator";
+import { PaginationCatalogue } from "@landing/components/landing/pagination-catalogue";
+import { FilterCatalogue } from "@landing/components/landing/filter-catalogue";
+import { PropertyCard } from "@landing/components/landing/property-card";
+import { properties } from "@landing/data/properties";
 import { notFound } from "next/navigation";
 
 export default function ClientInmueblesPage() {

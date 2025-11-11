@@ -8,8 +8,8 @@ import {
   SheetTrigger,
   SheetTitle,
   SheetDescription,
-} from "@/components/ui/sheet";
-import { Separator } from "@/components/ui/separator";
+} from "@landing/components/ui/sheet";
+import { Separator } from "@landing/components/ui/separator";
 import { Menu } from "lucide-react";
 
 export default function Navbar() {

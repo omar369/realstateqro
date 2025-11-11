@@ -1,10 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
-import { Label } from "@/components/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@landing/components/ui/dialog"
+import { Button } from "@landing/components/ui/button"
+import { Label } from "@landing/components/ui/label"
+import { RadioGroup, RadioGroupItem } from "@landing/components/ui/radio-group"
 import Turnstile from "react-turnstile"
 
 export default function CaptchaDialog({

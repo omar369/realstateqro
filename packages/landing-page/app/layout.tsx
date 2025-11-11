@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 
-import Navbar from '@/components/landing/Navbar'
-import Footer from '@/components/landing/Footer'
+import Navbar from '@landing/components/landing/Navbar'
+import Footer from '@landing/components/landing/Footer'
 
 //FUENTES
 const monse = Montserrat({

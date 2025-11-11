@@ -8,12 +8,12 @@ import {
   DialogTitle,
   DialogHeader,
   DialogDescription,
-} from "@/components/ui/dialog";
+} from "@landing/components/ui/dialog";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from "@/components/ui/carousel";
+} from "@landing/components/ui/carousel";
 
 interface Props {
   images: string[];

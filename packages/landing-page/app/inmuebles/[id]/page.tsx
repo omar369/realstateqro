@@ -1,8 +1,14 @@
 import { notFound } from "next/navigation";
-import { properties } from "@/data/properties";
-import PropertyDetailClientLayout from "@/components/landing/property-detail-client-layout";
+import { properties } from "@landing/data/properties";
+import PropertyDetailClientLayout from "@landing/components/landing/property-detail-client-layout";
 
-export default function PropertyPage({ params }: { params: { id: string } }) {
+type PropertyPageProps = {
+  params: {
+    id: string;
+  };
+};
+
+export default async function PropertyPage({ params }: PropertyPageProps) {
   const property = properties.find((p) => p.id === Number(params.id));
   if (!property) return notFound();
 
