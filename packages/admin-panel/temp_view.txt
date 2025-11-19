@@ -1,0 +1,188 @@
+﻿"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { PropertyCreateSchema } from "@/lib/validators/property";
+import { z } from "zod";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+
+type FormData = z.infer<typeof PropertyCreateSchema>;
+
+export default function PropertyForm() {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+
+  const form = useForm<FormData>({
+    resolver: zodResolver(PropertyCreateSchema),
+    defaultValues: {
+      titulo: "",
+      direccion: "",
+      tipoPropiedad: "",
+      tipoOperacion: "",
+      precio: 0,
+      habitaciones: 0,
+      banos: 0,
+      estacionamientos: 0,
+      metros: 0,
+      antiguedad: 0,
+      descripcion: "",
+      imagenes: [],
+      fecha: new Date(),
+      ambientes: [],
+      servicios: [],
+      amenidades: [],
+      exteriores: [],
+      extras: [],
+      detalles: {},
+    },
+  });
+
+  async function onSubmit(data: FormData) {
+    console.log("Intentando enviar:", data); // ðŸ‘€ primer check
+    try {
+      setLoading(true);
+      const res = await fetch("/api/properties", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+      if (result.success) {
+        console.log("âœ… Propiedad creada:", result.data);
+        router.push("/dashboard/inmuebles");
+      } else {
+        console.error("âŒ Error al crear propiedad:", result.error);
+        alert("No se pudo crear la propiedad.");
+      }
+    } catch (error) {
+      console.error("âŒ Error inesperado:", error);
+      alert("Error de conexiÃ³n o interno.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        console.log("ðŸŸ¢ Evento submit disparado");
+        form.handleSubmit(onSubmit)(e);
+      }}
+      className="space-y-6"
+    >
+      {/* TÃ­tulo */}
+      <div>
+        <Label htmlFor="titulo">TÃ­tulo</Label>
+        <Input id="titulo" {...form.register("titulo")} />
+        {form.formState.errors.titulo && (
+          <p className="text-red-500 text-sm">
+            {form.formState.errors.titulo.message}
+          </p>
+        )}
+      </div>
+
+      {/* DirecciÃ³n */}
+      <div>
+        <Label htmlFor="direccion">DirecciÃ³n</Label>
+        <Input id="direccion" {...form.register("direccion")} />
+      </div>
+
+      {/* Tipo de propiedad */}
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <Label htmlFor="tipoPropiedad">Tipo de propiedad</Label>
+          <Input id="tipoPropiedad" {...form.register("tipoPropiedad")} />
+        </div>
+        <div>
+          <Label htmlFor="tipoOperacion">Tipo de operaciÃ³n</Label>
+          <Input id="tipoOperacion" {...form.register("tipoOperacion")} />
+        </div>
+      </div>
+
+      {/* Precio */}
+      <div>
+        <Label htmlFor="precio">Precio</Label>
+        <Input
+          id="precio"
+          type="number"
+          {...form.register("precio", { valueAsNumber: true })}
+        />
+      </div>
+
+      {/* Campos numÃ©ricos */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div>
+          <Label htmlFor="habitaciones">Habitaciones</Label>
+          <Input
+            id="habitaciones"
+            type="number"
+            {...form.register("habitaciones", { valueAsNumber: true })}
+          />
+        </div>
+
+        <div>
+          <Label htmlFor="banos">BaÃ±os</Label>
+          <Input
+            id="banos"
+            type="number"
+            {...form.register("banos", { valueAsNumber: true })}
+          />
+        </div>
+
+        <div>
+          <Label htmlFor="estacionamientos">Estacionamientos</Label>
+          <Input
+            id="estacionamientos"
+            type="number"
+            {...form.register("estacionamientos", { valueAsNumber: true })}
+          />
+        </div>
+
+        <div>
+          <Label htmlFor="metros">Metros</Label>
+          <Input
+            id="metros"
+            type="number"
+            {...form.register("metros", { valueAsNumber: true })}
+          />
+        </div>
+
+        <div>
+          <Label htmlFor="antiguedad">AntigÃ¼edad (aÃ±os)</Label>
+          <Input
+            id="antiguedad"
+            type="number"
+            {...form.register("antiguedad", { valueAsNumber: true })}
+          />
+        </div>
+
+        <div>
+          <Label htmlFor="fecha">Fecha</Label>
+          <Input
+            id="fecha"
+            type="date"
+            {...form.register("fecha", { valueAsDate: true })}
+          />
+        </div>
+      </div>
+
+      {/* DescripciÃ³n */}
+      <div>
+        <Label htmlFor="descripcion">DescripciÃ³n</Label>
+        <Textarea id="descripcion" rows={5} {...form.register("descripcion")} />
+      </div>
+
+      {/* BotÃ³n enviar */}
+      <Button type="submit" disabled={loading}>
+        {loading ? "Guardando..." : "Guardar propiedad"}
+      </Button>
+    </form>
+  );
+}

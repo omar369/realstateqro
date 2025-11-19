@@ -7,6 +7,14 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 
+interface PropertyImage {
+  id: number;
+  propertyId: number;
+  key: string;
+  url: string;
+  position: number;
+}
+
 interface Property {
   id: number;
   titulo: string;
@@ -20,8 +28,8 @@ interface Property {
   metros: number;
   antiguedad: number;
   descripcion: string;
-  imagenes: string[];
   createdAt: string;
+  images: PropertyImage[];
 }
 
 export default function PropertyDetailPage() {
@@ -120,21 +128,22 @@ export default function PropertyDetailPage() {
 
         <Separator />
 
-        {property.imagenes.length > 0 && (
+        {property.images && property.images.length > 0 && (
           <div>
             <h2 className="text-lg font-medium mb-2">Imágenes</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {property.imagenes.map((url, i) => (
+              {property.images.map((img, i) => (
                 <div
                   key={i}
                   className="relative w-full h-40 rounded-md overflow-hidden border"
                 >
                   <Image
-                    src={url}
+                    src={img.url}
                     alt={`Imagen ${i + 1}`}
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 33vw"
+                    unoptimized
                   />
                 </div>
               ))}

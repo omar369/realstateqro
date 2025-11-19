@@ -8,6 +8,20 @@
       "when": 1762804290786,
       "tag": "0000_stale_talon",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1763067491787,
+      "tag": "0001_wooden_firestar",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1763502097836,
+      "tag": "0002_milky_chamber",
+      "breakpoints": true
     }
   ]
 }

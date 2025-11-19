@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { db } from "@/db";
-import { properties } from "@/db/schema";
-import { eq } from "drizzle-orm";
+import { properties, propertyImages } from "@/db/schema";
+import { asc, eq } from "drizzle-orm";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/route";
 import { PropertyUpdateSchema } from "@/lib/validators/property";
@@ -31,7 +31,13 @@ export async function GET(req: Request, context: { params: Promise<{ id: string 
       );
     }
 
-    return NextResponse.json({ success: true, data: property });
+    const images = await db
+      .select()
+      .from(propertyImages)
+      .where(eq(propertyImages.propertyId, id))
+      .orderBy(asc(propertyImages.position));
+
+    return NextResponse.json({ success: true, data: { ...property, images } });
   } catch (error) {
     console.error("❌ Error al obtener propiedad:", error);
     return NextResponse.json(

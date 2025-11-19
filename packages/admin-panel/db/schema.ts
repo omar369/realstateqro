@@ -1,8 +1,6 @@
 import { pgTable, foreignKey, serial, varchar, text, integer, date, jsonb, uuid, timestamp, unique } from "drizzle-orm/pg-core"
 import { sql } from "drizzle-orm"
 
-
-
 export const properties = pgTable("properties", {
 	id: serial().primaryKey().notNull(),
 	titulo: varchar({ length: 255 }).notNull(),
@@ -12,17 +10,25 @@ export const properties = pgTable("properties", {
 	precio: integer().notNull(),
 	habitaciones: integer().notNull(),
 	banos: integer().notNull(),
+	medioBano: integer().notNull(),
 	estacionamientos: integer().notNull(),
 	metros: integer().notNull(),
 	antiguedad: integer().notNull(),
 	descripcion: text().notNull(),
-	imagenes: text().array().notNull(),
 	fecha: date().notNull(),
 	ambientes: text().array().notNull(),
 	servicios: text().array().notNull(),
 	amenidades: text().array().notNull(),
 	exteriores: text().array().notNull(),
 	extras: text().array().notNull(),
+	// Detalles del inmueble (text inputs)
+	estadoConservacion: varchar("estado_conservacion", { length: 255 }).notNull(),
+	balcon: varchar("balcon", { length: 255 }).notNull(),
+	elevador: varchar("elevador", { length: 255 }).notNull(),
+	bodega: varchar("bodega", { length: 255 }).notNull(),
+	nivelesConstruidos: varchar("niveles_construidos", { length: 255 }).notNull(),
+	estanciaMinimaDias: varchar("estancia_minima_dias", { length: 255 }).notNull(),
+	disponibilidad: varchar("disponibilidad", { length: 255 }).notNull(),
 	detalles: jsonb().notNull(),
 	createdBy: uuid("created_by"),
 	createdAt: timestamp("created_at", { withTimezone: true, mode: 'string' }).defaultNow().notNull(),

@@ -5,6 +5,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface Property {
   id: number;
@@ -15,6 +16,7 @@ interface Property {
   precio: number;
   ciudad?: string;
   createdAt: string;
+  firstImageUrl?: string | null;
 }
 
 export default function InmueblesPage() {
@@ -77,7 +79,18 @@ export default function InmueblesPage() {
             <tbody>
               {properties.map((p) => (
                 <tr key={p.id} className="border-b hover:bg-muted/20">
-                  <td className="px-4 py-2 font-medium">{p.titulo}</td>
+                  <td className="px-4 py-2 font-medium">
+                    <div className="flex items-center gap-3">
+                      <div className="relative h-10 w-14 overflow-hidden rounded border bg-muted/40 flex-shrink-0">
+                        {p.firstImageUrl ? (
+                          <Image src={p.firstImageUrl} alt={p.titulo} fill className="object-cover" sizes="56px" unoptimized />
+                        ) : (
+                          <div className="flex h-full w-full items-center justify-center text-[10px] text-muted-foreground">Sin imagen</div>
+                        )}
+                      </div>
+                      <span className="truncate max-w-[28ch]">{p.titulo}</span>
+                    </div>
+                  </td>
                   <td className="px-4 py-2">{p.tipoPropiedad}</td>
                   <td className="px-4 py-2">{p.tipoOperacion}</td>
                   <td className="px-4 py-2">${p.precio.toLocaleString()}</td>
