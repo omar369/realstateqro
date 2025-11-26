@@ -3,13 +3,14 @@ import { properties } from "@landing/data/properties";
 import PropertyDetailClientLayout from "@landing/components/landing/property-detail-client-layout";
 
 type PropertyPageProps = {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 };
 
 export default async function PropertyPage({ params }: PropertyPageProps) {
-  const property = properties.find((p) => p.id === Number(params.id));
+  const { id } = await params;
+  const property = properties.find((p) => p.id === Number(id));
   if (!property) return notFound();
 
   return (
