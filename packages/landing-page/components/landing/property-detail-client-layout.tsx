@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import {
-  BedDoubleIcon,
-  BathIcon,
-  CarIcon,
-  ExpandIcon,
-  CalendarIcon,
-} from "lucide-react";
-
+// import {
+//   BedDoubleIcon,
+//   BathIcon,
+//   CarIcon,
+//   ExpandIcon,
+//   CalendarIcon,
+// } from "lucide-react";
+//
 import { ImageGalleryCarousel } from "./image-gallery-carousel";
 import { Badge } from "@landing/components/ui/badge";
 import {
@@ -98,7 +98,7 @@ export default function PropertyDetailClientLayout({
           />
         </div>
         <div className="md:col-span-2 grid grid-cols-2 gap-2">
-          {property.imagenes.slice(1,5).map((img: string, index: number) => (
+          {property.imagenes.slice(1, 5).map((img: string, index: number) => (
             <Image
               key={index}
               src={img}
@@ -129,22 +129,22 @@ export default function PropertyDetailClientLayout({
         </p>
         <div className="flex flex-wrap gap-6 pt-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-1">
-            <BedDoubleIcon className="w-4 h-4" /> {property.habitaciones}
+            {/* <BedDoubleIcon className="w-4 h-4" /> {property.habitaciones} */}
           </div>
           <div className="flex items-center gap-1">
-            <BathIcon className="w-4 h-4" /> {property.banos}
+            {/* <BathIcon className="w-4 h-4" /> {property.banos} */}
           </div>
           {property.estacionamientos !== undefined && (
             <div className="flex items-center gap-1">
-              <CarIcon className="w-4 h-4" /> {property.estacionamientos}
+              {/* <CarIcon className="w-4 h-4" /> {property.estacionamientos} */}
             </div>
           )}
           <div className="flex items-center gap-1">
-            <ExpandIcon className="w-4 h-4" /> {property.metros} m²
+            {/* <ExpandIcon className="w-4 h-4" /> {property.metros} m² */}
           </div>
           {property.antiguedad && (
             <div className="flex items-center gap-1">
-              <CalendarIcon className="w-4 h-4" /> {property.antiguedad} años
+              {/* <CalendarIcon className="w-4 h-4" /> {property.antiguedad} años */}
             </div>
           )}
         </div>

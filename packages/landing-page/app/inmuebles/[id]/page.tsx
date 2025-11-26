@@ -10,6 +10,7 @@ type PropertyPageProps = {
 
 export default async function PropertyPage({ params }: PropertyPageProps) {
   const { id } = await params;
+
   const property = properties.find((p) => p.id === Number(id));
   if (!property) return notFound();
 
@@ -20,3 +21,4 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
     </PropertyDetailClientLayout>
   );
 }
+
