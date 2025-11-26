@@ -17,7 +17,7 @@ export default function LoginPage() {
     setError("");
 
     const res = await signIn("credentials", {
-      redirect: false, // evitamos redirección automática
+      redirect: false, 
       email,
       password,
       callbackUrl: "/dashboard",

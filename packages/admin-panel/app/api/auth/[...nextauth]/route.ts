@@ -15,19 +15,16 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials) {
         try {
-          console.log("🧩 Recibido:", credentials);
-          console.log(
-            "🔑 ENV:",
-            process.env.ADMIN_EMAIL,
-            process.env.ADMIN_PASSWORD,
-          );
-
           if (
             credentials?.email === process.env.ADMIN_EMAIL &&
             credentials?.password === process.env.ADMIN_PASSWORD
           ) {
             console.log("✅ Login correcto");
-            return { id: "1", name: "Admin", email: credentials.email as string };
+            return {
+              id: "1",
+              name: "Admin",
+              email: credentials.email as string,
+            };
           }
 
           console.log("❌ Credenciales inválidas");
@@ -44,4 +41,3 @@ export const authOptions: NextAuthOptions = {
 const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };
-
