@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { Badge } from "@landing/components/ui/badge";
 import { Button } from "@landing/components/ui/button";
-import {
-  BathIcon,
-  BedDoubleIcon,
-  ExpandIcon,
-  CalendarIcon,
-} from "lucide-react";
+// import {
+//   BathIcon,
+//   BedDoubleIcon,
+//   ExpandIcon,
+//   CalendarIcon,
+// } from "lucide-react";
 import Link from "next/link";
 
 type Property = {
@@ -59,15 +59,15 @@ export function PropertyCard({ property }: PropertyCardProps) {
           {/* Íconos */}
           <div className="flex items-center gap-6 pt-2 text-sm text-muted-foreground">
             <div className="flex items-center gap-1">
-              <BedDoubleIcon className="w-4 h-4" />
+              {/* <BedDoubleIcon className="w-4 h-4" /> */}
               {property.habitaciones}
             </div>
             <div className="flex items-center gap-1">
-              <BathIcon className="w-4 h-4" />
+              {/* <BathIcon className="w-4 h-4" /> */}
               {property.banos}
             </div>
             <div className="flex items-center gap-1">
-              <ExpandIcon className="w-4 h-4" />
+              {/* <ExpandIcon className="w-4 h-4" /> */}
               {property.metros} m²
             </div>
           </div>
@@ -77,7 +77,7 @@ export function PropertyCard({ property }: PropertyCardProps) {
         <div className="flex justify-between items-center pt-4">
           {property.fecha && (
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <CalendarIcon className="w-4 h-4" />
+              {/* <CalendarIcon className="w-4 h-4" /> */}
               Publicado: {property.fecha}
             </div>
           )}

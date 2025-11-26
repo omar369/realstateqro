@@ -3,7 +3,7 @@
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Home, Calendar, CheckSquare, Folder, PlusSquare, List } from 'lucide-react';
+// import { Home, Calendar, CheckSquare, Folder, PlusSquare, List } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Sidebar() {
@@ -17,18 +17,18 @@ export default function Sidebar() {
 
       <ScrollArea className="flex-1">
         <nav className="flex flex-col space-y-1 p-4">
-          <SidebarLink href="/dashboard" icon={<Home size={18} />} label="Panel" />
-          <SidebarLink href="/dashboard/agenda" icon={<Calendar size={18} />} label="Agenda" />
-          <SidebarLink href="/dashboard/tareas" icon={<CheckSquare size={18} />} label="Tareas" />
-          <SidebarLink href="/dashboard/explorador" icon={<Folder size={18} />} label="Explorador" />
+          <SidebarLink href="/dashboard" icon={null} label="Panel" />
+          <SidebarLink href="/dashboard/agenda" icon={null} label="Agenda" />
+          <SidebarLink href="/dashboard/tareas" icon={null} label="Tareas" />
+          <SidebarLink href="/dashboard/explorador" icon={null} label="Explorador" />
 
           <Separator className="my-4" />
           <p className="text-xs font-medium text-muted-foreground mb-2">
             Administrar inmuebles
           </p>
 
-          <SidebarLink href="/dashboard/inmuebles/nuevo" icon={<PlusSquare size={18} />} label="Crear nuevo" />
-          <SidebarLink href="/dashboard/inmuebles" icon={<List size={18} />} label="Listado completo" />
+          <SidebarLink href="/dashboard/inmuebles/nuevo" icon={null} label="Crear nuevo" />
+          <SidebarLink href="/dashboard/inmuebles" icon={null} label="Listado completo" />
         </nav>
       </ScrollArea>
 

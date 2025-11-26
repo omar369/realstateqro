@@ -10,7 +10,7 @@ import {
   SheetDescription,
 } from "@landing/components/ui/sheet";
 import { Separator } from "@landing/components/ui/separator";
-import { Menu } from "lucide-react";
+// import { Menu } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -55,7 +55,7 @@ export default function Navbar() {
         <div className="md:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger aria-label="Abrir menú">
-              <Menu className="h-6 w-6" />
+              {/* <Menu className="h-6 w-6" /> */}
             </SheetTrigger>
             <SheetContent side="left">
               <SheetTitle className="sr-only">Menú móvil</SheetTitle>
