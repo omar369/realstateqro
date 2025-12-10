@@ -5,9 +5,6 @@
     "packages/admin-panel",
     "packages/landing-page"
   ],
-  "overrides": {
-    "lucide-react": "^0.552.0"
-  },
   "scripts": {
     "dev": "npm run dev -w landing-page",
     "build": "npm run build -w landing-page",

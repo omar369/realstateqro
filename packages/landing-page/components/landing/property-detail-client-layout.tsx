@@ -2,14 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-// import {
-//   BedDoubleIcon,
-//   BathIcon,
-//   CarIcon,
-//   ExpandIcon,
-//   CalendarIcon,
-// } from "lucide-react";
-//
 import { ImageGalleryCarousel } from "./image-gallery-carousel";
 import { Badge } from "@landing/components/ui/badge";
 import {
@@ -129,22 +121,22 @@ export default function PropertyDetailClientLayout({
         </p>
         <div className="flex flex-wrap gap-6 pt-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-1">
-            {/* <BedDoubleIcon className="w-4 h-4" /> {property.habitaciones} */}
+            <span aria-hidden="true">bed</span> {property.habitaciones}
+            <span aria-hidden="true">expand</span> {property.metros} m��
           </div>
           <div className="flex items-center gap-1">
-            {/* <BathIcon className="w-4 h-4" /> {property.banos} */}
+            <span aria-hidden="true">bath</span> {property.banos}
           </div>
           {property.estacionamientos !== undefined && (
             <div className="flex items-center gap-1">
-              {/* <CarIcon className="w-4 h-4" /> {property.estacionamientos} */}
+              <span aria-hidden="true">car</span> {property.estacionamientos}
+              <span aria-hidden="true">calendar</span> {property.antiguedad} a��os
             </div>
           )}
           <div className="flex items-center gap-1">
-            {/* <ExpandIcon className="w-4 h-4" /> {property.metros} m² */}
           </div>
           {property.antiguedad && (
             <div className="flex items-center gap-1">
-              {/* <CalendarIcon className="w-4 h-4" /> {property.antiguedad} años */}
             </div>
           )}
         </div>

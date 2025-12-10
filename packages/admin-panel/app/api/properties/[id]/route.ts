@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 import { db } from "@/db";
 import { properties, propertyImages } from "@/db/schema";
 import { asc, eq } from "drizzle-orm";
@@ -41,7 +41,7 @@ function normalizeKey(raw: string): string {
 
 // GET — obtener una propiedad por ID
 export async function GET(
-  req: Request,
+  req: NextRequest,
   context: { params: Promise<{ id: string }> },
 ) {
   const { id: rawId } = await context.params;
@@ -85,14 +85,15 @@ export async function GET(
 
 // PATCH — editar propiedad existente
 export async function PATCH(
-  req: Request,
-  { params }: { params: { id: string } },
+  req: NextRequest,
+  context: { params: Promise<{ id: string }> },
 ) {
   try {
     const session = await getServerSession(authOptions);
     if (!session)
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
+    const { id } = await context.params;
     const body = await req.json();
     const parsed = PropertyUpdateSchema.safeParse(body);
 
@@ -106,7 +107,7 @@ export async function PATCH(
     const updated = await db
       .update(properties)
       .set({ ...parsed.data, updatedAt: new Date().toISOString() })
-      .where(eq(properties.id, Number(params.id)))
+      .where(eq(properties.id, Number(id)))
       .returning();
 
     if (!updated.length) {
@@ -128,10 +129,10 @@ export async function PATCH(
 
 // DELETE — eliminar propiedad
 export async function DELETE(
-  _req: Request,
-  context: { params: { id: string } },
+  _req: NextRequest,
+  context: { params: Promise<{ id: string }> },
 ) {
-  class R2DeleteError extends Error { }
+  class R2DeleteError extends Error {}
 
   try {
     const session = await getServerSession(authOptions);

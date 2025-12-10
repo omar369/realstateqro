@@ -16,8 +16,9 @@ export const authOptions: NextAuthOptions = {
       async authorize(credentials) {
         try {
           if (
-            credentials?.email === process.env.ADMIN_EMAIL &&
-            credentials?.password === process.env.ADMIN_PASSWORD
+            credentials &&
+            credentials.email === process.env.ADMIN_EMAIL &&
+            credentials.password === process.env.ADMIN_PASSWORD
           ) {
             console.log("✅ Login correcto");
             return {

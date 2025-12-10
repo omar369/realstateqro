@@ -2,6 +2,12 @@
 
 # dependencies
 /node_modules
+# Ignorar todas las carpetas node_modules en la raíz y subdirectorios
+node_modules
+
+# Ignorar carpetas node_modules dentro de packages/
+# (aunque la primera línea ya lo hace, es bueno ser explícito en monorepos)
+packages/**/node_modules
 /.pnp
 .pnp.*
 .yarn/*
